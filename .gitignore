@@ -7,4 +7,5 @@
 .vs/
 # NuGet Packages
 *.nupkg
-# appsettings.json should be ignored but I kept it anyway 
+# appsettings.json should be ignored
+appsettings.json
