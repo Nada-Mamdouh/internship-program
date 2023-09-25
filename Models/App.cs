@@ -74,7 +74,6 @@ namespace InternshipProgramTask.Models
             internApplication.ProgramId = GlobalVars.CurrentProgramId;
             internApplication.CoverImage = "test coverimage";
             await _appClient.Create(internApplication);
-            Console.WriteLine(res.Title);
             _programRepo.GetAll();
         }
     }
