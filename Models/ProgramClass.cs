@@ -24,5 +24,7 @@ namespace InternshipProgramTask.Models
         public List<string> MinQualifications { get; set; } = new List<string>();
         public string MaxNoOfApplications { get; set; }
         public List<string> ApplicationIds { get; set; } = new List<string>();
+        public List<string> Stages { get; set; } = new List<string>();
+        public Stage CurrentStage { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace InternshipProgramTask.Repositories
     {
         Task Create(T document);
         Task<T> GetByTitle(string documentTitle);
+        Task<T> Update(string documentTitle, T document);
         Task<List<T>> GetAll();
     }
 }

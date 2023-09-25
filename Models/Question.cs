@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace InternshipProgramTask.Models
 {
-    internal abstract class Question
+    internal class Question
     {
-        public string Id = Guid.NewGuid().ToString();
+        public string id = Guid.NewGuid().ToString();
         public enum QuestionType { };
         public string QuestionBody { get; set; }
         public string UserAnswer { get; set; }

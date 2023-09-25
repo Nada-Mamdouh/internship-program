@@ -21,7 +21,6 @@ var services = scope.ServiceProvider;
 try
 {
     var appInstance = services.GetRequiredService<App>();
-    appInstance.DoWork();
     appInstance.Run(args);
     
     
@@ -35,13 +34,14 @@ catch (Exception e)
 IHostBuilder CreateHostBuilder(string[] strings)
 {
     return Host.CreateDefaultBuilder()
-        //enabling reading configuration from appsettings.json file
+        //enabling reading configurations from appsettings.json file
         .ConfigureAppConfiguration(app =>
              app.AddJsonFile("appsettings.json")
         )//enabling DI & adding services to container
         .ConfigureServices((_, services) =>
         {
             services.AddSingleton<IDbClient<ProgramClass>, CosmosDbClient_ProgramClass>();
+            services.AddSingleton<IDbClient<Application>, ApplicationRepo>();
             services.AddSingleton<IProgramRepo, ProgramRepo>();
             services.AddSingleton<App>();
         });

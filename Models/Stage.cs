@@ -9,7 +9,7 @@ namespace InternshipProgramTask.Models
 {
     internal class Stage
     {
-        public string Id = Guid.NewGuid().ToString();
+        public string id = Guid.NewGuid().ToString();
         public string Name { get; set; }// = StagePhase.Shortlisting.ToString();
         public string Description { get; set; }
         public List<string> Questions = new List<string>();

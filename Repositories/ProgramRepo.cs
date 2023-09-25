@@ -1,4 +1,5 @@
-﻿using InternshipProgramTask.Models;
+﻿using InternshipProgramTask.Global;
+using InternshipProgramTask.Models;
 using Microsoft.Azure.Cosmos;
 using System;
 using System.Collections.Generic;
@@ -25,13 +26,15 @@ namespace InternshipProgramTask.Repositories
             return await _dbClient.GetAll();
         }
 
-        public void Update(ProgramClass _Program)
+        public async void Update(ProgramClass _Program)
         {
             Console.WriteLine("update method is called");
-            throw new NotImplementedException();
+            string currentProgramTitle = GlobalVars.CurrentProgramTitle;
+            await _dbClient.Update(currentProgramTitle,_Program);
         }
         public async Task<ProgramClass> GetByTitle(string title)
         {
+
             return await _dbClient.GetByTitle(title);
         }
 
