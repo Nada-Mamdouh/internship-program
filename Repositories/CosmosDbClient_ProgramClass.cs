@@ -79,9 +79,8 @@ namespace InternshipProgramTask.Repositories
                 throw;
             }
         }
-        public async Task<ProgramClass> Update(string documentTitle, ProgramClass updatesObj)
+        public async Task<ProgramClass> Update(string documentTitle, ProgramClass updatedObj)
         {
-            ProgramClass updatedObject = GetByTitle(documentTitle).Result;
             /**Todo: 
              * => So far I can add and get and get all for Program, and add application with reference to program.
              * 1 - continue the update (to add application reference to program refrence.
@@ -89,7 +88,7 @@ namespace InternshipProgramTask.Repositories
              * 3 - Wrap up the entire application as workflow.
              * 4 - Upload file logic.
              * */
-            var response = await container.UpsertItemAsync<ProgramClass>(updatedObject, new PartitionKey("/Title"));
+            var response = await container.UpsertItemAsync<ProgramClass>(updatedObj, new PartitionKey(documentTitle));
             /*var result = await container.UpsertItemAsync(
                          updatedObject,new PartitionKey(GlobalVars.CurrentProgramId));*/
             Console.WriteLine("after update result");

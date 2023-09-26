@@ -30,6 +30,8 @@ namespace InternshipProgramTask.Repositories
         {
             Console.WriteLine("update method is called");
             string currentProgramTitle = GlobalVars.CurrentProgramTitle;
+            Console.WriteLine("program title => " + currentProgramTitle);
+            Console.WriteLine("the updated obj => " + _Program.Discription);
             await _dbClient.Update(currentProgramTitle,_Program);
         }
         public async Task<ProgramClass> GetByTitle(string title)
